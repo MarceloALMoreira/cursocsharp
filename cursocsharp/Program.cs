@@ -8,8 +8,7 @@ using cursocsharp.models.Secao4_Classes_Atributos_metedos_membrosEstaticos;
 using cursocsharp.models.Secao5__Contrutor_this_sobreCarga_encapsulamento;
 using System;
 using System.Globalization;
-
-
+using System.Runtime.CompilerServices;
 
 
 /*  AULA 3 Recapitulação Logica de Programção em C# */
@@ -29,6 +28,8 @@ using System.Globalization;
 //chamaClasseEntradaDeDados();
 
 
+
+
 // AULA 3 Funções 
 
 //chamaClasseOperadoresComparativos();
@@ -40,10 +41,6 @@ using System.Globalization;
 //chamaClasseFuncao();
 
 //chamaClasseEstruturaEquanto();
-
-
-
-
 
 static void chamaClasseTiposBasicos()
 {
@@ -123,8 +120,6 @@ static void chamaClasseEstruturaEquanto()
     EstruturaEquanto enquanto = new EstruturaEquanto();
     enquanto.enquanto();
 }
-
-
 
 
 
@@ -228,9 +223,14 @@ static void chamaClasseConversorDeMoeda()
 
 }
 
+
+
+
 /*  AULA 5 Contrutores*/
 
-chamaClasseContrutorProduct();
+//chamaClasseContrutorProduct();
+
+chamaClasseEncapsulamentoProduto();
 
 static void chamaClasseContrutorProduct()
 {
@@ -270,5 +270,38 @@ static void chamaClasseContrutorProduct()
     produto.RemoverProdutos(quantity);
     Console.WriteLine();
     Console.WriteLine("Dados atualizados: " + produto);
+
+
+    Console.WriteLine("Entra com o Produto 1 ");
+    string name1 = Console.ReadLine();
+    double price1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+    int quantity1 = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+
+
+    //Exemplo de contrutor padrao
+    ContrutorProduct produto1 = new ContrutorProduct
+    {
+        Name = name1,
+        Price = price1,
+        Quantity = quantity1
+    };
+
+    Console.WriteLine(produto1);
+
+
+
+
+
+}
+
+static void chamaClasseEncapsulamentoProduto()
+{
+    EncapsulamentoProduto produto = new EncapsulamentoProduto("TV", 500.00, 10);
+    Console.WriteLine(produto.GetName());
+    Console.Write("Digita um Novo nome para produto: ");
+    string newName = Console.ReadLine();
+    produto.SetName(newName);
+    Console.WriteLine(produto.GetName());
 }
 

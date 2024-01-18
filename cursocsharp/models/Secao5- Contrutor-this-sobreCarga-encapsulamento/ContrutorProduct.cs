@@ -23,6 +23,12 @@ namespace cursocsharp.models.Secao5__Contrutor_this_sobreCarga_encapsulamento
             Quantity = quantity;
         }
 
+        //Contrutor Padrao
+
+        public ContrutorProduct()
+        {
+
+        }
 
         //Metedos da classe
         public double ValorTotalEmEstoque()
