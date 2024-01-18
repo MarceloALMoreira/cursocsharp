@@ -4,6 +4,8 @@
 
 using cursocsharp.models.Secao3_RecapitulacaoLogicaDeProgramcao;
 using cursocsharp.models.Secao4;
+using cursocsharp.models.Secao4_Classes_Atributos_metedos_membrosEstaticos;
+using cursocsharp.models.Secao5__Contrutor_this_sobreCarga_encapsulamento;
 using System;
 using System.Globalization;
 
@@ -101,12 +103,13 @@ static void chamaClasseOperadoresLogicos()
     operadorLogicos.operadoreLogico();
 }
 
-static void chamaClasseEstuturaCondicional(){
+static void chamaClasseEstuturaCondicional()
+{
     EstuturaCondicional estuturaCondigional = new EstuturaCondicional();
     estuturaCondigional.estruturaCondicionais();
 
     Pessoa.verificaIdadePessoa();
-    
+
 }
 
 static void chamaClasseFuncao()
@@ -128,11 +131,41 @@ static void chamaClasseEstruturaEquanto()
 
 /*  AULA 4 Classes, Atributos, Métodos, Membros Estaticos */
 
+//chmaClasseProduto();
+
 //chamaClasseRetangulo();
 
 //chamaClasseFuncionario();
 
 //chamaClasseConversorDeMoeda();
+
+static void chmaClasseProduto()
+{
+    Produto produto = new Produto();
+
+    Console.WriteLine("Entre os dados do produto:");
+    Console.Write("Nome: ");
+    produto.Name = Console.ReadLine();
+    Console.Write("Preço: ");
+    produto.Price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+    Console.Write("Quantidade no estoque: ");
+    produto.Quantity = int.Parse(Console.ReadLine());
+    Console.WriteLine();
+    Console.WriteLine("Dados do produto: " + produto);
+    Console.WriteLine();
+    Console.Write("Digite o número de produtos a ser adicionado ao estoque: ");
+    int quantity = int.Parse(Console.ReadLine());
+    produto.AdicionarProdutos(quantity);
+    Console.WriteLine();
+    Console.WriteLine("Dados atualizados: " + produto);
+    Console.WriteLine();
+    Console.Write("Digite o número de produtos a ser removido do estoque: ");
+    quantity = int.Parse(Console.ReadLine());
+    produto.RemoverProdutos(quantity);
+    Console.WriteLine();
+    Console.WriteLine("Dados atualizados: " + produto);
+
+}
 
 static void chamaClasseRetangulo()
 {
@@ -193,5 +226,49 @@ static void chamaClasseConversorDeMoeda()
 
     Console.WriteLine("Valor a ser pago em reais = " + result.ToString("F2", CultureInfo.InvariantCulture));
 
+}
+
+/*  AULA 5 Contrutores*/
+
+chamaClasseContrutorProduct();
+
+static void chamaClasseContrutorProduct()
+{
+
+    /* Neste caso eu so vou poder fazer a instancia da classe ja sabendo que temos certeza que vem dados antes.
+     * 
+     * Por isso vamos criar variaveis auxiliar para receber os valores e passar no (contrutor) da classe product
+     *  
+    */
+
+
+    // Aqui ja estamos recebendo o valor do usuario e passando na instancia da classe para o contrutor
+    Console.WriteLine("Entre os dados do produto:");
+    Console.Write("Nome: ");
+    string name = Console.ReadLine();
+    Console.Write("Preço: ");
+    double price = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+    Console.Write("Quantidade no estoque: ");
+    int quantity = int.Parse(Console.ReadLine());
+
+
+    //Garantindo que ja temos valores que recebemos nas variaveis auxilares.
+    ContrutorProduct produto = new ContrutorProduct(name, price, quantity);
+
+    Console.WriteLine();
+    Console.WriteLine("Dados do produto: " + produto);
+    Console.WriteLine();
+    Console.Write("Digite o número de produtos a ser adicionado ao estoque: ");
+    Console.WriteLine();
+    quantity = int.Parse(Console.ReadLine());
+    produto.AdicionarProdutos(quantity);
+    Console.WriteLine();
+    Console.WriteLine("Dados atualizados: " + produto);
+    Console.WriteLine();
+    Console.Write("Digite o número de produtos a ser removido do estoque: ");
+    quantity = int.Parse(Console.ReadLine());
+    produto.RemoverProdutos(quantity);
+    Console.WriteLine();
+    Console.WriteLine("Dados atualizados: " + produto);
 }
 
