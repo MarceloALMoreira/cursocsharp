@@ -9,6 +9,7 @@ using cursocsharp.models.Secao5__Contrutor_this_sobreCarga_encapsulamento;
 using System;
 using System.Globalization;
 using System.Runtime.CompilerServices;
+using System.Xml.Linq;
 
 
 /*  AULA 3 Recapitulação Logica de Programção em C# */
@@ -300,8 +301,20 @@ static void chamaClasseEncapsulamentoProduto()
     EncapsulamentoProduto produto = new EncapsulamentoProduto("TV", 500.00, 10);
     Console.WriteLine(produto.GetName());
     Console.Write("Digita um Novo nome para produto: ");
+
     string newName = Console.ReadLine();
-    produto.SetName(newName);
-    Console.WriteLine(produto.GetName());
+
+
+    //produto.SetName(newName);
+
+    //agora não preciso usar o setName para passar um nome valor eu posso usar como Atributo da classe
+
+    produto.Name = newName;
+    //produto.Price = 150.00;
+
+
+
+    Console.WriteLine($"Seu produto é uma: {produto.Name}, no valor de {produto.Price.ToString("F2", CultureInfo.InvariantCulture)}");
+
 }
 

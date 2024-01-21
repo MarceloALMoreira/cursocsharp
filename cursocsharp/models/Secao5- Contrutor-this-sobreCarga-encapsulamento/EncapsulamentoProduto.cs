@@ -24,10 +24,12 @@ namespace cursocsharp.models.Secao5__Contrutor_this_sobreCarga_encapsulamento
         }
 
         // Construtor Usando o this para acessar outro contrutor
-     
+
 
         // Construtor para inicialização dos atributos
-        public EncapsulamentoProduto(string name, double price, int quantity)
+        public EncapsulamentoProduto(string name,
+            double price,
+            int quantity)
         {
             _name = name;
             _price = price;
@@ -35,6 +37,7 @@ namespace cursocsharp.models.Secao5__Contrutor_this_sobreCarga_encapsulamento
         }
 
         // Criando os Metedos get e Set para os atributos da classe
+
         public string GetName()
         {
             return _name;
@@ -47,6 +50,39 @@ namespace cursocsharp.models.Secao5__Contrutor_this_sobreCarga_encapsulamento
             }
         }
 
+        public double GetPrice()
+        {
+            return _price;
+        }
+
+
+
+        // Vamos criar uma properties para deixar similar a um atributo da classe
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if (value != null && value.Length > 1)
+                {
+                    _name = value;
+                }
+            }
+        }
+
+        //Outra Propertis que nos retorna o propriop price, mais usando a Sintaxe de Price atributo da classe.
+        public double Price
+        {
+            get { return _price; }
+          /*  set
+            {
+                if (value != null)
+                {
+                    _price = value;
+
+                }
+            }*/
+        }
 
         // Método para calcular o valor total em estoque
         public double ValorTotalEmEstoque()
